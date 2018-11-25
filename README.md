@@ -106,3 +106,30 @@ MIT
 ## Don't forget
 
 What you build with Frame is more important than Frame. 
+
+## Team
+
+<table border="0">
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/iraniamir.png?s=150">
+        <br>
+        <a href="https://github.com/iraniamir">Ami Irani</a>
+        <p>Senior Full Stack Developer</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/ehsanranjbar.png?s=150">
+        <br>
+        <a href="https://github.com/ehsanranjbar">Ehsan Ranjbar</a>
+        <p>Software Developer</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/amiraliio.png?s=150">
+        <br>
+        <a href="https://github.com/amiraliio">Amirali Roshanaei</a>
+        <p>Software Developer</p>
+      </td>
+     </tr>
+  </tbody>
+</table>
