@@ -72,15 +72,6 @@ ____________________________________O/_______
 Now you should be able to point your browser to http://127.0.0.1:3500/swagger/index.html and
 see the documentation page.
 
-## Running tests
-
-```bash
-$ go test
-  ...
-```
-
-Almost tests are functional exept mail stuff so first should config `.env` file .
-
 ## Running in production
 
 I suggest run [MongoDB](http://www.mongodb.org/downloads), [Minio](http://minio.io) and Frame separately on container base tools like [Docker](http://docker.com) to better manage.
