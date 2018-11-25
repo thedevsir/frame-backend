@@ -1,0 +1,798 @@
+basePath: /endpoint
+definitions:
+  response.Message:
+    properties:
+      Code:
+        type: integer
+      Message:
+        type: object
+    type: object
+host: localhost:3500
+info:
+  contact:
+    email: freshmanlimited@gmail.com
+    name: Amir Irani
+  description: A user system API starter.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  title: Frame
+  version: 1.0.0
+paths:
+  /admin/auth/admin-manage/create:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Create a new Admin
+      tags:
+      - adminManage
+  /admin/auth/admin-manage/get/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: adminID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Get admin by id
+      tags:
+      - adminManage
+  /admin/auth/admin-manage/get/all:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: number
+      - description: Limit
+        in: query
+        name: limit
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Get all admins
+      tags:
+      - adminManage
+  /admin/auth/admin-manage/password/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: adminID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Update password of admin
+      tags:
+      - adminManage
+  /admin/auth/admin-manage/status/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: adminID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: IsActive
+        in: body
+        name: isActive
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Set admin status
+      tags:
+      - adminManage
+  /admin/auth/admin-manage/username/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: adminID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Update username of admin
+      tags:
+      - adminManage
+  /admin/auth/users/avatar/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: delete user's avatar
+      tags:
+      - adminUser
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: upload avatar
+      tags:
+      - adminUser
+  /admin/auth/users/email/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Set user email
+      tags:
+      - adminUser
+  /admin/auth/users/get/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Get user by id
+      tags:
+      - adminUser
+  /admin/auth/users/get/all:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: page of pgination
+        in: query
+        name: page
+        type: integer
+      - description: limit of pgination
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Get all users
+      tags:
+      - adminUser
+  /admin/auth/users/password/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Set user password
+      tags:
+      - adminUser
+  /admin/auth/users/status/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: UserID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: IsActive
+        in: body
+        name: isActive
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Set user status
+      tags:
+      - adminUser
+  /admin/auth/users/username/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Set username
+      tags:
+      - adminUser
+  /admin/signin:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Admin signin
+      tags:
+      - admin
+  /admin/signout:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - AdminApiKeyAuth: []
+      summary: Admin signout
+      tags:
+      - admin
+  /users/auth/avatar:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete user's avatar
+      tags:
+      - user
+    put:
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Upload avatar
+      tags:
+      - user
+  /users/auth/email:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Change user account email
+      tags:
+      - user
+  /users/auth/mine:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get user account info
+      tags:
+      - user
+  /users/auth/password:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Change password
+      tags:
+      - user
+  /users/auth/sessions:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Page
+        in: query
+        name: page
+        type: number
+      - description: Limit
+        in: query
+        name: limit
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get user sessions
+      tags:
+      - session
+  /users/auth/signout:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Session ID
+        in: body
+        name: id
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete session
+      tags:
+      - session
+  /users/auth/username:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update username
+      tags:
+      - user
+  /users/get/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: userID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Get user with id
+      tags:
+      - user
+  /users/signin:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: User signin
+      tags:
+      - user
+  /users/signin/forgot:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Forgot password
+      tags:
+      - user
+  /users/signin/reset:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Token
+        in: body
+        name: token
+        required: true
+        schema:
+          type: object
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Reset password
+      tags:
+      - user
+  /users/signup:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: object
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: object
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Create an account
+      tags:
+      - user
+  /users/signup/resend:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Resend email verfication
+      tags:
+      - user
+  /users/signup/verification:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Token
+        in: body
+        name: token
+        required: true
+        schema:
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Message'
+            type: object
+      summary: Activation
+      tags:
+      - user
+securityDefinitions:
+  AdminApiKeyAuth:
+    in: header
+    name: AdminAuthorization
+    type: apiKey
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

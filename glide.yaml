@@ -1,0 +1,42 @@
+package: github.com/thedevsir/frame-backend
+import:
+- package: github.com/dgrijalva/jwt-go
+  version: v3.2.0
+- package: github.com/go-ozzo/ozzo-validation
+  version: v3.4.0
+  subpackages:
+  - is
+- package: github.com/joho/godotenv
+  version: v1.2.0
+- package: github.com/labstack/echo
+  version: 3.3.5
+  subpackages:
+  - middleware
+- package: github.com/matcornic/hermes
+  version: 1.1.1
+- package: github.com/satori/go.uuid
+  version: v1.2.0
+- package: github.com/swaggo/echo-swagger
+- package: github.com/swaggo/swag
+  version: v1.3.2
+- package: github.com/zebresel-com/mongodm
+  version: v2.0.1
+- package: golang.org/x/crypto
+  subpackages:
+  - bcrypt
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
+- package: gopkg.in/go-playground/validator.v9
+  version: v9.20.2
+- package: gopkg.in/gomail.v2
+  version: ^2.0.0
+- package: github.com/spf13/cobra
+  version: ^0.0.3
+  subpackages:
+  - cobra
+testImport:
+- package: github.com/stretchr/testify
+  version: v1.2.2
+  subpackages:
+  - assert

@@ -1,0 +1,6 @@
+.env
+.idea
+.vscode
+glide.lock
+/app/controller/admin_manage_test.go_
+/app/controller/admin_user_test.go_
