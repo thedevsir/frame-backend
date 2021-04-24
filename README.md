@@ -116,9 +116,9 @@ What you build with Frame is more important than Frame.
         <p>Software Developer</p>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/amiraliio.png?s=150">
+        <img width="150" height="150" src="https://github.com/bitcodr.png?s=150">
         <br>
-        <a href="https://github.com/amiraliio">Amirali Roshanaei</a>
+        <a href="https://github.com/bitcodr">Amirali Roshanaei</a>
         <p>Software Developer</p>
       </td>
      </tr>
