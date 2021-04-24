@@ -2,10 +2,6 @@
 
 A user system API starter. Bring your own front-end.
 
-[![Build Status](https://travis-ci.org/thedevsir/frame-backend.svg?branch=master)](https://travis-ci.org/thedevsir/frame-backend)
-[![Dependency Status](https://david-dm.org/thedevsir/frame-backend.svg?style=flat)](https://david-dm.org/thedevsir/frame-backend)
-[![devDependency Status](https://david-dm.org/thedevsir/frame-backend/dev-status.svg?style=flat)](https://david-dm.org/thedevsir/frame-backend#info=devDependencies)
-
 
 ## Features
 
